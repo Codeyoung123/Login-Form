@@ -1,1 +1,140 @@
-[{"fileName":"Login Form.html","_id":"23ac9f34-3677-4f97-a001-b7d367d4a5a9","code":{"htmlCode":"<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Login Form</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            background-color: #f4f4f4;\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            height: 100vh;\n            margin: 0;\n        }\n        .form-container {\n            background: white;\n            padding: 30px;\n            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n            border-radius: 8px;\n            width: 300px;\n        }\n        h2 {\n            text-align: center;\n            margin-bottom: 20px;\n        }\n        .form-group {\n            margin-bottom: 15px;\n        }\n        label {\n            display: block;\n            margin-bottom: 5px;\n            font-weight: bold;\n        }\n        input {\n            width: 100%;\n            padding: 10px;\n            border: 1px solid #ccc;\n            border-radius: 4px;\n            font-size: 14px;\n        }\n        .error {\n            color: red;\n            font-size: 12px;\n            margin-top: 5px;\n        }\n        .success {\n            color: green;\n            font-size: 14px;\n            margin-top: 15px;\n        }\n        button {\n            width: 100%;\n            padding: 10px;\n            background-color: #4CAF50;\n            color: white;\n            border: none;\n            border-radius: 4px;\n            font-size: 16px;\n            cursor: pointer;\n        }\n        button:hover {\n            background-color: #45a049;\n        }\n    </style>\n</head>\n<body>\n\n    <div class=\"form-container\">\n        <h2>Login Form</h2>\n        <form id=\"loginForm\">\n            <div class=\"form-group\">\n                <label for=\"username\">Username:</label>\n                <input type=\"text\" id=\"username\" name=\"username\" required>\n            </div>\n\n            <div class=\"form-group\">\n                <label for=\"password\">Password:</label>\n                <input type=\"password\" id=\"password\" name=\"password\" required>\n                <div id=\"passwordError\" class=\"error\"></div>\n            </div>\n\n            <div class=\"form-group\">\n                <label for=\"confirmPassword\">Confirm Password:</label>\n                <input type=\"password\" id=\"confirmPassword\" name=\"confirmPassword\" required>\n                <div id=\"confirmPasswordError\" class=\"error\"></div>\n            </div>\n\n            <button type=\"submit\">Login</button>\n\n            <div id=\"loginMessage\" class=\"success\"></div>\n        </form>\n    </div>\n\n    <script>\n        \n        document.getElementById('loginForm').addEventListener('submit', function(e) {\n            e.preventDefault(); \n            \n            let password = document.getElementById('password').value;\n            let confirmPassword = document.getElementById('confirmPassword').value;\n            let username = document.getElementById('username').value;\n\n            let passwordError = document.getElementById('passwordError');\n            let confirmPasswordError = document.getElementById('confirmPasswordError');\n            let loginMessage = document.getElementById('loginMessage');\n\n       \n            passwordError.textContent = '';\n            confirmPasswordError.textContent = '';\n            loginMessage.textContent = '';\n\n            let isValid = true;\n\n            \n            if (password !== confirmPassword) {\n                confirmPasswordError.textContent = \"Passwords do not match!\";\n                isValid = false;\n            }\n\n           \n            if (password === '' || confirmPassword === '') {\n                if (password === '') passwordError.textContent = \"Password is required!\";\n                if (confirmPassword === '') confirmPasswordError.textContent = \"Confirm Password is required!\";\n                isValid = false;\n            }\n\n            if (isValid) {\n                loginMessage.textContent = \"Login Successful!\";\n                loginMessage.style.color = \"green\";\n            } else {\n                loginMessage.textContent = \"Please fix the errors above.\";\n                loginMessage.style.color = \"red\";\n            }\n        });\n    </script>\n\n</body>\n</html>\n","cssCode":"","jsCode":""}}]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .success {
+            color: green;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Login Form</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <div id="passwordError" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div id="confirmPasswordError" class="error"></div>
+            </div>
+
+            <button type="submit">Login</button>
+
+            <div id="loginMessage" class="success"></div>
+        </form>
+    </div>
+
+    <script>
+        
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            let password = document.getElementById('password').value;
+            let confirmPassword = document.getElementById('confirmPassword').value;
+            let username = document.getElementById('username').value;
+
+            let passwordError = document.getElementById('passwordError');
+            let confirmPasswordError = document.getElementById('confirmPasswordError');
+            let loginMessage = document.getElementById('loginMessage');
+
+       
+            passwordError.textContent = '';
+            confirmPasswordError.textContent = '';
+            loginMessage.textContent = '';
+
+            let isValid = true;
+
+            
+            if (password !== confirmPassword) {
+                confirmPasswordError.textContent = "Passwords do not match!";
+                isValid = false;
+            }
+
+           
+            if (password === '' || confirmPassword === '') {
+                if (password === '') passwordError.textContent = "Password is required!";
+                if (confirmPassword === '') confirmPasswordError.textContent = "Confirm Password is required!";
+                isValid = false;
+            }
+
+            if (isValid) {
+                loginMessage.textContent = "Login Successful!";
+                loginMessage.style.color = "green";
+            } else {
+                loginMessage.textContent = "Please fix the errors above.";
+                loginMessage.style.color = "red";
+            }
+        });
+    </script>
+
+</body>
+</html>
